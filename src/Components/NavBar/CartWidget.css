@@ -1,0 +1,18 @@
+.cartIcon{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.cart{
+    font-size: 32px !important; 
+    color: #384259;
+    transition: all 0.5s;
+}
+.cart:hover{
+    color: #00FF8F;
+    transition: all 0.5s;
+}
