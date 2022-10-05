@@ -1,7 +1,8 @@
 import NavBar from './Components/NavBar/NavBar';
 import CartWidget from './Components/NavBar/CartWidget';
 import ItemList from './Components/NavBar/ItemList'
-import ItemListContainer from './Components/Main/ItemListContainer'
+import ItemCount from './Components/Main/ItemCount'
+/* import ItemListContainer from './Components/Main/ItemListContainer' */
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <CartWidget></CartWidget>
       <ItemList></ItemList>
     </NavBar>
-    <ItemListContainer greeting = "Hola mundo desde JSX"></ItemListContainer>
+    {/* <ItemListContainer greeting = "Hola mundo desde JSX"></ItemListContainer> */}
+    <ItemCount stock = {20}></ItemCount>
     </>
   );
 }

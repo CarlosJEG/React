@@ -1,0 +1,21 @@
+.ItemCount{
+    width: 250px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.btn{
+    background-color: #384259;
+    height: 40px;
+    border-right: none !important;
+}
+.subtract:hover{
+    background-color: #dc3545;
+}
+.add:hover{
+    background-color: #198754;
+}
+.AddToCart{
+    width: 180px;
+}
