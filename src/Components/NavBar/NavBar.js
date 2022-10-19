@@ -1,9 +1,9 @@
 import './NavBar.css';
 import logo from './logo.svg';
+import ItemList from './CategoryList'
+import CartWidget from './CartWidget'
 
-function NavBar({children}) {
-
-  const [CartWidget, ItemList] = children
+function NavBar() {
 
   return (
     <header className='header'>
@@ -13,8 +13,8 @@ function NavBar({children}) {
             <img src={logo} alt="logo" />
           </a>
         </div>
-          {ItemList}
-          {CartWidget}
+          <ItemList/>
+          <CartWidget/>
       </div>
     </header>
   );
