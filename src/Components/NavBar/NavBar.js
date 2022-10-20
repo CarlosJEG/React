@@ -2,6 +2,7 @@ import './NavBar.css';
 import logo from './logo.svg';
 import ItemList from './CategoryList'
 import CartWidget from './CartWidget'
+import { Link } from "react-router-dom";
 
 function NavBar() {
 
@@ -9,9 +10,9 @@ function NavBar() {
     <header className='header'>
       <div className="header__container">
         <div className="header__logo">
-          <a href="index.html">
+          <Link to={"/"}>
             <img src={logo} alt="logo" />
-          </a>
+          </Link>
         </div>
           <ItemList/>
           <CartWidget/>

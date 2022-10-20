@@ -7,30 +7,25 @@ import './ItemDetail.css'
 
 function ItemDetail({productListDetail}) {
 
-    const {products} = productListDetail
-    const [product] = products
-
-    console.log(product);
-
     return (
         <Card className='cardCntainer'>
           <CardMedia
             className='cardImage'
             component="img"
-            image={product.images[0]}
-            alt={product.title}
+            image={productListDetail.images[0]}
+            alt={productListDetail.title}
           />
           <CardContent className='cardContentDetail'>
             <Typography className='title'>
-              {product.title}
+              {productListDetail.title}
             </Typography>
             <Typography className='description'>
-              {product.description}
+              {productListDetail.description}
             </Typography>
             <Typography className='price'>
-                {"$" + product.price}
+                {"$" + productListDetail.price}
             </Typography>
-            <ItemCount stock={12}/>
+              <ItemCount stock={productListDetail.stock}/>
           </CardContent>
       </Card>
     );

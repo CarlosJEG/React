@@ -3,15 +3,20 @@ import ItemList from './ItemList'
 import './ItemListContainer.css'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { useParams } from "react-router-dom";
 
 function ItemListContainer({greeting}) {
 
   const [listProducts, setlistProducts] = useState()
+  const { id } = useParams();
+
+  const URL_Base = 'https://dummyjson.com/products'
+  const URL_Category = `${URL_Base}/category/${id}`
 
   useEffect(()=>{
     const getProducts = async ()=> {
       try{
-        const res = await fetch("https://dummyjson.com/products")
+        const res = await fetch(id ? URL_Category : URL_Base)
         const data = await res.json();
         setlistProducts(data)
       } catch {
@@ -19,7 +24,7 @@ function ItemListContainer({greeting}) {
       }
     }
     getProducts()
-  },[])
+  },[id, URL_Base, URL_Category])
 
     return (
       <>

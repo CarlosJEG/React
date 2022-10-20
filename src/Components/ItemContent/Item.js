@@ -3,6 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 import './Item.css'
 
 function Item ({product}) {
@@ -25,7 +26,9 @@ function Item ({product}) {
             <Typography className='price'>
                 {"$" + product.price}
             </Typography>
-            <Button className='btn' variant="contained">Add To Cart</Button>
+                <Link to={"/product/" + product.id}>
+                    <Button className='btn' variant="contained">More Details</Button>
+                </Link>
             </CardContent>
         </Card>
     );
