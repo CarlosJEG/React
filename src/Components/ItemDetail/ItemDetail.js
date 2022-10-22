@@ -2,10 +2,20 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 import ItemCount from './ItemCount'
 import './ItemDetail.css'
+import { Link } from "react-router-dom"
+import Button from '@mui/material/Button';
+
 
 function ItemDetail({productListDetail}) {
+
+  const [changeBtn, setChangeBtn] = useState(true)
+
+  const change = ()=> {
+    setChangeBtn(false)
+  }
 
     return (
         <Card className='cardCntainer'>
@@ -23,9 +33,12 @@ function ItemDetail({productListDetail}) {
               {productListDetail.description}
             </Typography>
             <Typography className='price'>
-                {"$" + productListDetail.price}
+                {"Price: $" + productListDetail.price}
             </Typography>
-              <ItemCount stock={productListDetail.stock}/>
+            <Typography className='price'>
+                {"Stock: " + productListDetail.stock}
+            </Typography>
+            {changeBtn ? <ItemCount change={change} stock={productListDetail.stock}/> : <Link to={"/cart"}><Button className='btn' variant="contained">Go to Cart</Button></Link>}
           </CardContent>
       </Card>
     );
