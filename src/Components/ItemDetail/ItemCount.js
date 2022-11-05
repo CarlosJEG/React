@@ -4,7 +4,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import TextField from '@mui/material/TextField';
 import './ItemCount.css'
 
-function ItemCount({stock, change}) {
+function ItemCount({stock, onAdd}) {
 
     const [Count, setCount] = useState(1)
 
@@ -20,16 +20,12 @@ function ItemCount({stock, change}) {
         }
     }
 
-    /* const reset = () =>{
-        setCount(1)
-    } */
-
     return (
         <div className='ItemCount'>
           <TextField label="STOCK" type="number" value={Count} InputLabelProps={{shrink: true,}}/>
           <ButtonGroup variant="contained">
             <Button className='btn' onClick={subtract}>-</Button>
-            <Button className='AddToCart btn' onClick={change}>Add To Cart</Button>
+            <Button className='AddToCart btn' onClick={()=>onAdd(Count)}>Add To Cart</Button>
             <Button className='btn' onClick={add}>+</Button>
           </ButtonGroup>
         </div>
