@@ -24,7 +24,7 @@ function ItemDetail({productListDetail}) {
           <CardMedia
             className='cardImage'
             component="img"
-            image={productListDetail.images[0]}
+            image={productListDetail.thumbnail}
             alt={productListDetail.title}
           />
           <CardContent className='cardContentDetail'>

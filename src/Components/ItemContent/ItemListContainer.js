@@ -4,27 +4,34 @@ import './ItemListContainer.css'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { db } from '../../Firebase/Firebase'
 
 function ItemListContainer({greeting}) {
 
   const [listProducts, setlistProducts] = useState()
   const { id } = useParams();
 
-  const URL_Base = 'https://dummyjson.com/products'
-  const URL_Category = `${URL_Base}/category/${id}`
+  const productCollection = collection(db, "Products");
+  const categoryProduct = query(productCollection, where('category', '==', id === undefined ? "" : id));
 
   useEffect(()=>{
-    const getProducts = async ()=> {
-      try{
-        const res = await fetch(id ? URL_Category : URL_Base)
-        const data = await res.json();
-        setlistProducts(data)
-      } catch {
-        console.log("Error")
-      }
-    }
-    getProducts()
-  },[id, URL_Base, URL_Category])
+
+    getDocs(id ? categoryProduct : productCollection)
+    .then((result) => {
+      const Products = result.docs.map((item) => {
+        return {
+          ...item.data(),
+          id: item.id,
+        };
+      });
+      setlistProducts(Products);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+  },[[id, productCollection, categoryProduct]])
 
     return (
       <>

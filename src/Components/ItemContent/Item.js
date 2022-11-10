@@ -6,27 +6,27 @@ import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import './Item.css'
 
-function Item ({product}) {
+function Item ({products}) {
 
     return(
         <Card className='card'>
             <CardMedia 
             className='image'
             component="img"
-            image={product.images[0]}
-            alt={product.title}
+            image={products.thumbnail}
+            alt={products.title}
             />
             <CardContent className='cardContent'>
             <Typography className='title'>
-                {product.title}
+                {products.title}
             </Typography>
             <Typography className='description'>
-                {product.description}
+                {products.description}
             </Typography>
             <Typography className='price'>
-                {"$" + product.price}
+                {"$" + products.price}
             </Typography>
-                <Link to={"/product/" + product.id}>
+                <Link to={"/product/" + products.id}>
                     <Button className='btn' variant="contained">More Details</Button>
                 </Link>
             </CardContent>

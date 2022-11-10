@@ -8,7 +8,6 @@ function CategoryList () {
         {name: "smartphones", id: 1, ruta: "/category/smartphones"},
         {name: "laptops", id: 2, ruta: "/category/laptops"},
         {name: "fragrances", id: 3, ruta: "/category/fragrances"},
-        {name: "Contact us", id: 4, ruta: "/AboutUsView"},
     ]
 
     return (
